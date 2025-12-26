@@ -35,16 +35,15 @@ The script will automatically:
 
 ### After First Setup
 
-The folder structure will look like this (or in your chosen path):
+The folder structure will look like this (based on your chosen `$baseDir` path):
 ```
-<Your chosen path>\TheIsle\
+<Your chosen path>\
 ├── Logs/           (server logs with timestamps)
 ├── Server/         (The Isle server files - ~5GB)
-├── SteamCMD/       (Steam download tool - auto-installed)
-└── The-Isle/       (this repository)
-    ├── StartServer.ps1
-    └── README.md
+└── SteamCMD/       (Steam download tool - auto-installed)
 ```
+
+Your repository folder (with `StartServer.ps1`) can be anywhere - it doesn't need to be inside the server folder.
 
 ## Usage
 
