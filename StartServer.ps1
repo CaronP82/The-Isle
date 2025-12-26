@@ -32,18 +32,53 @@ $clientSecret = "pKWl6t5i9NJK8gTpVlAxzENZ65P8hYzodV8Dqe5Rlc8"
 # SteamCMD settings
 $appId = 412680
 $branch = "evrima"
+$steamCmdUrl = "https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip"
 
 # === FUNCTIONS ===
+
+function Install-SteamCMD {
+    Write-Host "`n[INSTALL] SteamCMD not found. Installing automatically..." -ForegroundColor Yellow
+
+    # Create SteamCMD directory
+    if (-not (Test-Path $steamCmdPath)) {
+        New-Item -ItemType Directory -Path $steamCmdPath | Out-Null
+    }
+
+    $zipPath = Join-Path $steamCmdPath "steamcmd.zip"
+
+    try {
+        Write-Host "[DOWNLOAD] Downloading SteamCMD from $steamCmdUrl..." -ForegroundColor Cyan
+        Invoke-WebRequest -Uri $steamCmdUrl -OutFile $zipPath -UseBasicParsing
+        Write-Host "[SUCCESS] Download completed." -ForegroundColor Green
+
+        Write-Host "[EXTRACT] Extracting SteamCMD..." -ForegroundColor Cyan
+        Expand-Archive -Path $zipPath -DestinationPath $steamCmdPath -Force
+        Remove-Item $zipPath -Force
+        Write-Host "[SUCCESS] SteamCMD installed successfully!" -ForegroundColor Green
+
+        # Run SteamCMD once to complete installation
+        Write-Host "[SETUP] Running initial SteamCMD setup..." -ForegroundColor Cyan
+        Start-Process -FilePath "$steamCmdPath\steamcmd.exe" -ArgumentList "+quit" -Wait -NoNewWindow
+        Write-Host "[SUCCESS] SteamCMD ready to use!" -ForegroundColor Green
+
+        return $true
+    }
+    catch {
+        Write-Host "[ERROR] Failed to install SteamCMD: $_" -ForegroundColor Red
+        Write-Host "[INFO] Please download manually from: https://developer.valvesoftware.com/wiki/SteamCMD" -ForegroundColor Yellow
+        return $false
+    }
+}
 
 function Test-Prerequisites {
     Write-Host "`n[CHECK] Verifying prerequisites..." -ForegroundColor Cyan
     $allGood = $true
 
-    # Check SteamCMD
+    # Check/Install SteamCMD
     if (-not (Test-Path "$steamCmdPath\steamcmd.exe")) {
-        Write-Host "[ERROR] SteamCMD not found at: $steamCmdPath\steamcmd.exe" -ForegroundColor Red
-        Write-Host "[INFO] Please download SteamCMD from: https://developer.valvesoftware.com/wiki/SteamCMD" -ForegroundColor Yellow
-        $allGood = $false
+        if (-not (Install-SteamCMD)) {
+            $allGood = $false
+        }
     } else {
         Write-Host "[OK] SteamCMD found" -ForegroundColor Green
     }

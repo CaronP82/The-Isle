@@ -6,14 +6,14 @@ Automated PowerShell script to manage The Isle (Evrima) dedicated server.
 
 ### Prerequisites
 - Windows
-- [SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD) installed in `C:\Server\TheIsle\SteamCMD\`
+- **That's it!** SteamCMD is automatically downloaded by the script
 
 ### Folder Structure
 ```
 C:\Server\TheIsle\
 ├── Logs/           (created automatically)
 ├── Server/         (downloaded by script)
-├── SteamCMD/       (manual installation required)
+├── SteamCMD/       (downloaded automatically)
 └── The-Isle/       (this Git repository)
     └── StartServer.ps1
 ```
