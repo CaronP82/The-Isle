@@ -70,7 +70,7 @@ $serverPassword = ""                 # Password (empty = no password)
 $port = 7777                         # Server port
 ```
 
-**Important**: The script automatically regenerates `Game.ini` and `Engine.ini` on each startup.
+**Important**: The script automatically regenerates `Game.ini` and `Engine.ini` on each startup. This prevents game bugs where The Isle server can delete or corrupt these files. Your settings in the script are always preserved.
 
 ## Default Settings
 
