@@ -1,0 +1,13 @@
+# Claude Code local settings
+.claude/
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Logs (if someone runs the script from this folder)
+Logs/
+
+# Server files (if someone uses this folder as baseDir)
+Server/
+SteamCMD/
