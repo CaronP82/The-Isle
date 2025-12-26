@@ -21,6 +21,7 @@ $serverPassword = ""  # Leave empty for no password
 $RconEnabled = "false"
 $rconPassword = "qwerty"
 $rconPort = 8888
+$adminSteamIDs = ""  # Your SteamID64 - Leave empty or add: "76561198XXXXXXXX"
 
 # Network settings
 $port = 7777
