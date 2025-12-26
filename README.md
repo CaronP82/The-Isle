@@ -5,30 +5,59 @@ Automated PowerShell script to manage The Isle (Evrima) dedicated server.
 ## Quick Setup
 
 ### Prerequisites
-- Windows
-- **That's it!** SteamCMD is automatically downloaded by the script
+- Windows (PowerShell)
+- **That's it!** Everything else is automatic
 
-### Folder Structure
+### First Time Setup
+
+1. **Download this repository** (clone or download ZIP)
+
+2. **Choose your installation location:**
+   - Default location: `C:\Server\TheIsle\The-Isle\`
+   - **Want a different location?** Edit [StartServer.ps1](StartServer.ps1) line 9:
+     ```powershell
+     $baseDir = "C:\Server\TheIsle"  # Change this to your preferred path
+     ```
+     For example: `D:\MyServers\TheIsle` or `E:\Games\TheIsleServer`
+
+3. **Open PowerShell** in the folder where you downloaded the repository
+
+4. **Run the installation command:**
+   ```powershell
+   .\StartServer.ps1 -Update
+   ```
+
+The script will automatically:
+- Download and install SteamCMD to your chosen location (if not present)
+- Download The Isle server files (~50GB)
+- Create all necessary folders and configuration files
+- Start the server
+
+### After First Setup
+
+The folder structure will look like this:
 ```
 C:\Server\TheIsle\
-├── Logs/           (created automatically)
-├── Server/         (downloaded by script)
-├── SteamCMD/       (downloaded automatically)
-└── The-Isle/       (this Git repository)
-    └── StartServer.ps1
+├── Logs/           (server logs with timestamps)
+├── Server/         (The Isle server files - 50GB)
+├── SteamCMD/       (Steam download tool - auto-installed)
+└── The-Isle/       (this repository)
+    ├── StartServer.ps1
+    └── README.md
 ```
 
 ## Usage
 
-### Start the server
+### Start the server (no updates)
 ```powershell
 .\StartServer.ps1
 ```
 
-### Install/Update then start
+### Update and start the server
 ```powershell
 .\StartServer.ps1 -Update
 ```
+Use this when there's a game update or to verify server files.
 
 ## Server Configuration
 
