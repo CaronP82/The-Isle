@@ -12,15 +12,16 @@ Automated PowerShell script to manage The Isle (Evrima) dedicated server.
 
 1. **Download this repository** (clone or download ZIP)
 
-2. **Choose your installation location:**
-   - Default location: `C:\Server\TheIsle\The-Isle\`
+2. **Place the script:**
+   - Create folder: `C:\Server\TheIsle\` (or your preferred location)
+   - Put `StartServer.ps1` directly in this folder
    - **Want a different location?** Edit the `$baseDir` variable in [StartServer.ps1](StartServer.ps1):
      ```powershell
-     $baseDir = "C:\Server\TheIsle"  # Change this to your preferred path
+     $baseDir = "C:\Server\TheIsle"  # Change this to match where you put the script
      ```
      Example: `D:\MyServers\TheIsle` or `E:\Games\TheIsleServer`
 
-3. **Open PowerShell** in the folder where you downloaded the repository
+3. **Open PowerShell** in the folder containing `StartServer.ps1`
 
 4. **Run the installation command:**
    ```powershell
@@ -37,13 +38,13 @@ The script will automatically:
 
 The folder structure will look like this (based on your chosen `$baseDir` path):
 ```
-<Your chosen path>\
-├── Logs/           (server logs with timestamps)
-├── Server/         (The Isle server files - ~5GB)
-└── SteamCMD/       (Steam download tool - auto-installed)
+$baseDir\
+├── StartServer.ps1              (the script - placed here by you)
+├── README.md                    (this file)
+├── Logs\                        (created automatically - server logs)
+├── Server\                      (created automatically - The Isle files ~5GB)
+└── SteamCMD\                    (created automatically - Steam download tool)
 ```
-
-Your repository folder (with `StartServer.ps1`) can be anywhere - it doesn't need to be inside the server folder.
 
 ## Usage
 
