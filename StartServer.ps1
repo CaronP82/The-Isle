@@ -164,7 +164,7 @@ GrowthMultiplier=1 // Universal multiplier for growth. Putting this number too h
 bEnableMutations=true // Enable mutations.
 
 [/Script/TheIsle.TIGameStateBase]
-AdminsSteamIDs=76561198116443989 // SteamID64 format
+AdminsSteamIDs=you admin SteamID // SteamID64 format
 WhitelistIDs=White list steam ID here // SteamID64 format. NOTE: Must be enabled in the game session below. Keep this empty if whitelist is disabled
 // List of all enabled classes. Remove a line to remove a class from spawning. - Can also be managed in Admin Panel in real time.
 AllowedClasses=Allosaurus
