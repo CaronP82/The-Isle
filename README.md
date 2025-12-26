@@ -82,50 +82,9 @@ $port = 7777                         # Server port
 - **Mutations**: Enabled (all)
 - **Zombie Mode**: Enabled
 
-## Network Configuration (IMPORTANT!)
-
-Your server won't be visible online without proper network setup:
-
-### 1. Use Wired Connection (REQUIRED)
-- **Connect your server PC with an Ethernet cable** - WiFi is NOT reliable for game servers
-- Wireless connections cause lag and disconnections
-
-### 2. Set a Static IP Address
-Your server PC needs a fixed local IP (e.g., `192.168.1.100`):
-- Open Windows Settings → Network & Internet → Ethernet → IP settings
-- Change from "Automatic (DHCP)" to "Manual"
-- Set a static IP in your router's range (usually `192.168.1.x` or `192.168.0.x`)
-
-### 3. Forward Ports on Your Router
-Players can't connect without port forwarding:
-- Log into your router (usually `192.168.1.1` or `192.168.0.1`)
-- Find "Port Forwarding" section
-- Forward these ports to your server's static IP:
-  - **Port 7777** (UDP) - Game port
-  - **Port 27015** (UDP) - Query port
-- Save and reboot your router
-
-### 4. Windows Firewall Rules
-Allow the server through Windows Firewall:
-- Open Windows Defender Firewall → Advanced Settings
-- **Inbound Rules** → New Rule → Port
-  - UDP, Port 7777 → Allow the connection
-  - Name it "The Isle Server - Game Port"
-- Repeat for UDP Port 27015 (Query Port)
-
-### 5. Test Your Setup
-- Start the server with `.\StartServer.ps1`
-- Check if your ports are open: https://www.yougetsignal.com/tools/open-ports/
-- Enter your public IP and port 7777
-
 ## Support
 
 To modify available dinosaurs, mutations, or other advanced settings, edit the `Game.ini` generation section in the script (lines 100-210).
-
-### Common Issues
-- **Server not visible**: Check port forwarding and firewall rules
-- **Players can't connect**: Verify static IP hasn't changed
-- **Lag/disconnections**: Make sure server is on wired connection, not WiFi
 
 ## License
 
